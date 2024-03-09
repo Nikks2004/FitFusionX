@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="SportNutr.Web.MvcApplication" Language="C#" %>
