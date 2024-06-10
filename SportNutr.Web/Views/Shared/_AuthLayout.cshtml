@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sport Nutrition Store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: #1c1c1c;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #f8f9fa;
+        }
+        .navbar {
+            margin-bottom: 20px;
+            background-color: #343a40;
+        }
+        .navbar-brand, .nav-link {
+            color: #f8f9fa !important;
+        }
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .form-signin, .form-signup {
+            max-width: 500px;
+            padding: 30px;
+            background: #2c2c2c;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-signin h2, .form-signup h2 {
+            margin-bottom: 30px;
+            color: #f8f9fa;
+        }
+        .form-group label {
+            color: #f8f9fa;
+        }
+        .form-control {
+            background-color: #3a3a3a;
+            border: 1px solid #555;
+            color: #f8f9fa;
+        }
+        .form-control::placeholder {
+            color: #bbb;
+        }
+        .form-control:focus {
+            background-color: #3a3a3a;
+            color: #f8f9fa;
+            border-color: #007bff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .form-signin .register-link, .form-signup .login-link {
+            margin-top: 10px;
+            color: #f8f9fa;
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 150px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">Sport Nutrition Store</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                @Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("About", "About", "Home", null, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })
+            </li>
+            @if (!User.Identity.IsAuthenticated)
+            {
+            <li class="nav-item">
+                @Html.ActionLink("Login", "Login", "Account", null, new { @class = "nav-link" })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Register", "Register", "Account", null, new { @class = "nav-link" })
+            </li>
+            }
+            else
+            {
+            if (User.IsInRole("Moderator"))
+            {
+            <li class="nav-item">
+                @Html.ActionLink("View Members", "ViewMembers", "Admin", null, new { @class = "nav-link" })
+            </li>
+            }
+            <li class="nav-item">
+                @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "nav-link" })
+            </li>
+            }
+        </ul>
+    </div>
+</nav>
+<div class="content-wrapper">
+    @RenderBody()
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+</script>
+</body>
+</html>

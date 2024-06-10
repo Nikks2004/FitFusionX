@@ -123,11 +123,16 @@
         <Compile Include="App_Start\BundleConfig.cs" />
         <Compile Include="App_Start\FilterConfig.cs" />
         <Compile Include="App_Start\RouteConfig.cs" />
+        <Compile Include="Controllers\AccountController.cs" />
+        <Compile Include="Controllers\AdminController.cs" />
         <Compile Include="Controllers\HomeController.cs" />
+        <Compile Include="Controllers\MemberController.cs" />
         <Compile Include="Global.asax.cs">
             <DependentUpon>Global.asax</DependentUpon>
         </Compile>
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="SecurityItems\ModeratorAccessAttribute.cs" />
+        <Content Include="Views\Shared\_AuthLayout.cshtml" />
     </ItemGroup>
     <ItemGroup>
         <Content Include="Content\css\animate.min.css" />
@@ -280,6 +285,12 @@
         <Content Include="Scripts\vendor\modernizr-3.5.0.min.js" />
         <Content Include="Scripts\waypoints.min.js" />
         <Content Include="Scripts\wow.min.js" />
+        <Content Include="Views\Account\Login.cshtml" />
+        <Content Include="Views\Account\Register.cshtml" />
+        <Content Include="Views\Admin\ViewMembers.cshtml" />
+        <Content Include="Views\Member\BecomeMember.cshtml" />
+        <Content Include="Views\Member\ThankYou.cshtml" />
+        <Content Include="Views\Shared\_AdminLayout.cshtml" />
         <Content Include="Web.config" />
         <Content Include="Web.Debug.config">
             <DependentUpon>Web.config</DependentUpon>
@@ -301,6 +312,20 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\SportNutr.BL\SportNutr.BL.csproj">
+        <Project>{2ddbb42b-d370-4c29-b5eb-fd0ab5f84708}</Project>
+        <Name>SportNutr.BL</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\SportNutr.Db\SportNutr.Db.csproj">
+        <Project>{4d814b77-2e15-4f20-aa93-f6d3d3202a6c}</Project>
+        <Name>SportNutr.Db</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\SportNutr.Domain\SportNutr.Domain.csproj">
+        <Project>{b66df49b-ed62-43c2-8958-a8b9ed655c07}</Project>
+        <Name>SportNutr.Domain</Name>
+      </ProjectReference>
     </ItemGroup>
     <PropertyGroup>
         <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

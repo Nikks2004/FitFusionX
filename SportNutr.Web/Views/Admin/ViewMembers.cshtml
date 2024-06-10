@@ -1,0 +1,53 @@
+﻿@model System.Collections.Generic.List<SportNutr.Domain.Member>
+
+@{
+ViewBag.Title = "View Members";
+Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <h2 class="mb-4">View Members</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.First().LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Email)</th>
+            <th>@Html.DisplayNameFor(model => model.First().DateOfBirth)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Gender)</th>
+            <th>@Html.DisplayNameFor(model => model.First().FavoriteSport)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Goals)</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+            <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
+            <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+            <td>@Html.DisplayFor(modelItem => item.FavoriteSport)</td>
+            <td>@Html.DisplayFor(modelItem => item.Goals)</td>
+            <td>
+                @using (Html.BeginForm("ApproveMember", "Admin", FormMethod.Post))
+                {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("id", item.Id)
+                <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                }
+                @using (Html.BeginForm("DisapproveMember", "Admin", FormMethod.Post))
+                {
+                @Html.AntiForgeryToken()
+                @Html.Hidden("id", item.Id)
+                <button type="submit" class="btn btn-danger btn-sm">Disapprove</button>
+                }
+            </td>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>

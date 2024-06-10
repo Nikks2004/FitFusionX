@@ -11,7 +11,7 @@ namespace SportNutr.Domain
         public int Quantity { get; set; }
 
         // Навигационные свойства
-        public virtual User User { get; set; }
+        public virtual Client Client { get; set; }
         public virtual Product Product { get; set; }
     }
 }

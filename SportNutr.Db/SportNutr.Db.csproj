@@ -50,6 +50,14 @@
     <Compile Include="Migrations\202404091844551_Nikita.Designer.cs">
       <DependentUpon>202404091844551_Nikita.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202404162101438_auth.cs" />
+    <Compile Include="Migrations\202404162101438_auth.Designer.cs">
+      <DependentUpon>202404162101438_auth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202405150438075_members.cs" />
+    <Compile Include="Migrations\202405150438075_members.Designer.cs">
+      <DependentUpon>202405150438075_members.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SportsNutritionDbContext.cs" />
@@ -67,6 +75,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202404091844551_Nikita.resx">
       <DependentUpon>202404091844551_Nikita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202404162101438_auth.resx">
+      <DependentUpon>202404162101438_auth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202405150438075_members.resx">
+      <DependentUpon>202405150438075_members.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
